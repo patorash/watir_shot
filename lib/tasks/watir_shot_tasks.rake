@@ -8,8 +8,8 @@ namespace :watir_shot do
   desc "Capture screenshot by watir.(Ex. rake watir_shot:capture[chrome])"
   task :capture, "browser_type"
   task capture: :environment do |_, args|
-    require "pry"
     require "watir"
+    require 'watir-webdriver'
     browser_type = args.browser_type.to_sym if args.browser_type.present?
     browser_type ||= :firefox
     watir_shot_yml_path = Rails.root.join("config/watir_shot.yml")
