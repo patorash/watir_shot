@@ -49,8 +49,8 @@ WatirShot.configure do |config|
   #        path: '/'
 end
         FILE
-        create_routes_yml
       end
+      create_routes_yml
     end
 
     def create_routes_yml
