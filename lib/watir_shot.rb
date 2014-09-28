@@ -22,7 +22,9 @@ module WatirShot
   end
 
   def self.base_url
-    @@default_url_options[:schema] + "://" + @@default_url_options[:host]
+    schema = @@default_url_options[:schema] || 'http'
+    host = @@default_url_options[:host] || 'localhost:3000'
+    "#{schema}://#{host}"
   end
 end
 require 'railtie'
