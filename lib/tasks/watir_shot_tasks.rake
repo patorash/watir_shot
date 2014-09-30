@@ -9,7 +9,7 @@ namespace :watir_shot do
   task :capture, "browser_type"
   task capture: :environment do |_, args|
     require "watir"
-    require 'watir-webdriver'
+    require "watir-webdriver"
     browser_type = args.browser_type.to_sym if args.browser_type.present?
     browser_type ||= :firefox
     watir_shot_yml_path = Rails.root.join("config/watir_shot.yml")
@@ -33,13 +33,13 @@ namespace :watir_shot do
       # clean screenshot directory before capture.
       FileUtils.rm(Dir.glob(tmp_dir.to_s + '/**/*.png'))
       # do pre-processing
-      WatirShot.befores[key.to_sym].call(browser) if WatirShot.befores[key.to_sym].present?
+      WatirShot.befores[key.to_sym].call(browser) unless WatirShot.befores[key.to_sym]
       watir_shot_pages[key].each.with_index(1) do |page, index|
         browser.goto WatirShot.base_url + page['path']
         browser.screenshot.save "#{tmp_dir}/#{sprintf('%04d', index)}-#{page['title']}.png"
       end
       # do post-processing
-      WatirShot.afters[key.to_sym].call(browser) if WatirShot.afters[key.to_sym].present?
+      WatirShot.afters[key.to_sym].call(browser) unless WatirShot.afters[key.to_sym]
     end
     browser.close
   end

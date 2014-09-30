@@ -9,15 +9,16 @@ Gem::Specification.new do |s|
   s.version     = WatirShot::VERSION
   s.authors     = ["Toyoaki Oko"]
   s.email       = ["chariderpato@gmail.com"]
-  # s.homepage    = "TODO"
+  s.homepage    = "https://github.com/patorash/watir_shot"
   s.summary     = "Capture screenshot by watir."
   s.description = "Capture screenshot by watir."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+  s.require_paths = ['lib']
 
   s.add_development_dependency "pry"
+  s.add_dependency "watir", '5.0.0'
   s.add_dependency "rails", "~> 4.1.6"
-  s.add_dependency "watir"
 end
