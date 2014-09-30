@@ -111,6 +111,5 @@ DEPENDENCIES
   activerecord-jdbcsqlite3-adapter
   jruby-openssl
   pry
-  rails (~> 4.1.6)
   sqlite3
   watir_shot!
