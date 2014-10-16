@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    watir_shot (0.0.1)
+    watir_shot (0.0.2)
       rails (~> 4.1.6)
       watir (= 5.0.0)
 
@@ -36,7 +36,7 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     builder (3.2.2)
-    childprocess (0.5.3)
+    childprocess (0.5.5)
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.0)
     commonwatir (4.0.0)
@@ -48,8 +48,8 @@ GEM
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
-    mime-types (2.3)
-    minitest (5.4.1)
+    mime-types (2.4.1)
+    minitest (5.4.2)
     multi_json (1.10.1)
     pry (0.9.12.6)
       coderay (~> 1.0)
