@@ -33,13 +33,13 @@ namespace :watir_shot do
       # clean screenshot directory before capture.
       FileUtils.rm(Dir.glob(tmp_dir.to_s + '/**/*.png'))
       # do pre-processing
-      WatirShot.befores[key.to_sym].call(browser) unless WatirShot.befores[key.to_sym]
+      WatirShot.befores[key.to_sym].call(browser) if WatirShot.befores[key.to_sym]
       watir_shot_pages[key].each.with_index(1) do |page, index|
         browser.goto WatirShot.base_url + page['path']
         browser.screenshot.save "#{tmp_dir}/#{sprintf('%04d', index)}-#{page['title']}.png"
       end
       # do post-processing
-      WatirShot.afters[key.to_sym].call(browser) unless WatirShot.afters[key.to_sym]
+      WatirShot.afters[key.to_sym].call(browser) if WatirShot.afters[key.to_sym]
     end
     browser.close
   end
