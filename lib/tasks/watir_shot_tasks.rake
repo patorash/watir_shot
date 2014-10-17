@@ -36,7 +36,8 @@ namespace :watir_shot do
       WatirShot.befores[key.to_sym].call(browser) if WatirShot.befores[key.to_sym]
       watir_shot_pages[key].each.with_index(1) do |page, index|
         browser.goto WatirShot.base_url + page['path']
-        browser.screenshot.save "#{tmp_dir}/#{sprintf('%04d', index)}-#{page['title']}.png"
+        # browser.screenshot.save "#{tmp_dir}/#{sprintf('%04d', index)}-#{page['title']}.png"
+        browser.driver.save_screenshot "#{tmp_dir}/#{sprintf('%04d', index)}-#{page['title']}.png"
       end
       # do post-processing
       WatirShot.afters[key.to_sym].call(browser) if WatirShot.afters[key.to_sym]
